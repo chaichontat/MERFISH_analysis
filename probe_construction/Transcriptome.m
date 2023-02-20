@@ -301,11 +301,11 @@ methods
                 tic;
             end
             fid = fopen(abundancePath);
-            fileData = textscan(fid, '%s%s%s%s%s%s%s%d%f%f%f%f%s', 'HeaderLines', 1);
+            fileData = textscan(fid, '%s%f', 'HeaderLines', 1);
             fclose(fid);
 
             foundIds = fileData{1};
-            fpkm = fileData{10};
+            fpkm = fileData{2};
         else nargin == 2 & all(varargin{2}>=0) & iscell(varargin{1}) 
             % -------------------------------------------------------------------------
             % Handle the case of direct loading of abundance names
